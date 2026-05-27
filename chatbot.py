@@ -161,7 +161,7 @@ class GymChatBot:
 
 
         # BMI
-        elif any(word in words for word in ["bmi", "Body Mass Index"]):
+        elif "bmi" in words or "body mass index" in message:
             try:
                 weight = float(input("Enter your weight (kg): "))
                 height = float(input("Enter your height (m): "))
@@ -177,13 +177,13 @@ class GymChatBot:
                 elif 18.5 <= result < 25:
                     return (
                         f"Your BMI is: {result}. Normal weight. "
-                        "Keep maintaining a healthy lifestyle "
+                        "Keep maintaining a healthy lifestyle."
                     )
 
                 elif 25 <= result < 30:
                     return (
                         f"Your BMI is: {result}. Overweight. "
-                        "Try calorie deficit and regular exercise "
+                        "Try calorie deficit and regular exercise."
                     )
 
                 else:
@@ -191,29 +191,27 @@ class GymChatBot:
                         f"Your BMI is: {result}. Obese category. "
                         "Consider consulting a healthcare professional."
                     )
+
             except ValueError:
                 return "Invalid input. Please enter numbers only."
-            except Exception:
-                return "An unexpected error occurred during BMI calculation."
 
 
-
-        #protein intake calculator
-        elif any(word in words for word in ["pic", "Protein Intake Calculation","protein intake"]):
-
+        # Protein intake calculator
+        elif "pic" in words or "protein intake" in message:
             try:
                 weight = float(input("Enter your weight (kg): "))
 
                 result = self.pic(weight)
                 result2 = self.pic(weight * 2)
 
-                return f"Your Protein Intake Calculation is at least: {result} grams per day and at most: {result2} grams per day"
+                return (
+                    f"Your Protein Intake Calculation is at least: "
+                    f"{result} grams per day and at most: "
+                    f"{result2} grams per day"
+                )
 
             except ValueError:
                 return "Invalid input."
-
-
-
         # Workout plans
         for level in self.workout_plans:
 

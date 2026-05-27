@@ -22,4 +22,4 @@ A rule-based fitness chatbot built with Python and NLTK.
 1. Clone the repository
 
 ```bash
-git clone https://github.com/Karim khozam/gymchatbot.git
+git clone https://github.com/Miko196/gymchatbot.git
